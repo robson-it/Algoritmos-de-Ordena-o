@@ -1,0 +1,46 @@
+public class ordLinear{
+
+public static void main(String[]args){
+
+int order[] = {5,6,3,3,8,8,9,4,3,5};//vetor desordenado
+int aux[] = new int [10];//vetor auxiliar
+int result[] = new int [10];//vetor resultado
+
+//laço para inserir 0 em todas as posições do vetor auxiliar
+for (int x=0;x<10;x++){
+aux[x]=0;
+}
+
+
+//utiliza o valor na posição i do vetor desordenado como indice para o vetor auxiliar, e incrementa +1.
+for (int i=0;i<10;i++){
+aux[order[i]]=aux[order[i]]+1;
+}
+
+
+//soma a posição atual e a posição anterior do vetor alocando o resultado na posição atual.
+for (int i=0;i<10;i++){
+if(i>0)
+aux[i]=aux[i]+aux[i-1];
+}
+
+
+//utiliza o valor do vetor desordenado como indice para o auxiliar, pega o valor no auxiliar e decrementa 1, utiliza esse valor como indice para o vetor resultado. Decrementa valor do auxiliar.
+for(int t=0;t<10;t++){
+result[aux[order[t]]-1]=order[t];
+aux[order[t]]--;
+
+}
+
+//Exibe o vetor ordenado.
+for(int k=0;k<10;k++){
+System.out.println(result[k]);
+
+}
+
+
+}
+
+
+
+}
